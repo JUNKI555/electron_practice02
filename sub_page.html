@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>electron practice 02</title>
+  <style>
+    html,
+    body {
+      font-family: "Noto Sans JP", Verdana, Geneva, Tahoma, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: transparent;
+    }
+
+    #screen {
+      height: 90vh;
+      width: 90vw;
+      background-color: transparent;
+    }
+
+    .area {
+      height: 10vh;
+      width: 90vw;
+    }
+
+    .back-transparent {
+      background-color: transparent;
+      color: #FFF;
+    }
+
+    .back-white {
+      background-color: #FFF;
+    }
+  </style>
+</head>
+<body>
+  <div id="screen">
+    <div class="area back-white">
+      <p>透過なし背景色白</p>
+    </div>
+    <div class="area back-transparent">
+      <p>透過</p>
+    </div>
+    <div class="area back-white">
+      <p>透過なし背景色白</p>
+    </div>
+    <div class="area back-transparent">
+      <p>透過</p>
+    </div>
+  </div>
+</body>
+</html>

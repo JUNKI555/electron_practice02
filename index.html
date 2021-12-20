@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>electron practice 02</title>
+  <style>
+    html,
+    body {
+      font-family: "Noto Sans JP", Verdana, Geneva, Tahoma, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: transparent;
+    }
+
+    #screen {
+      height: 100vh;
+      width: 100vw;
+      background-color: transparent;
+    }
+
+    button {
+      width: 150px;
+      height: 75px;
+    }
+  </style>
+</head>
+<body>
+  <div id="screen">
+    <button id="button_transparent_mode" onclick="openTransparentMode()">transparent</button>
+    <button id="button_opacity_mode" onclick="openOpacityMode()">opactiry</button>
+  </div>
+
+  <script>
+    function openTransparentMode() {
+      window.myAPI.transparentMode();
+    }
+
+    function openOpacityMode() {
+      window.myAPI.opacityMode();
+    }
+  </script>
+</body>
+</html>
