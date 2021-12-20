@@ -1,0 +1,15 @@
+{
+  "name": "electron_practice02",
+  "version": "1.0.0",
+  "description": "electron transition and opacity practice",
+  "main": "index.js",
+  "repository": "git@github.com:JUNKI555/electron_practice02.git",
+  "author": "JUNKI555 <junki555@gmail.com>",
+  "license": "WTFPL",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^16.0.5"
+  }
+}
