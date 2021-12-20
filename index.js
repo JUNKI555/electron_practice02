@@ -2,6 +2,8 @@ const { app, BrowserWindow, ipcMain, screen } = require('electron')
 const path = require('path')
 
 let mainWindow = null
+let transparentWindow = null
+let opacityWindow = null
 
 const createWindow = () => {
   mainWindow = new BrowserWindow({
@@ -45,7 +47,7 @@ app.on('window-all-closed', () => {
 ipcMain.handle('transparentMode', (event, data) => {
   const targetDisplay = screen.getDisplayNearestPoint(screen.getCursorScreenPoint())
 
-  const transparentWindow = new BrowserWindow({
+  transparentWindow = new BrowserWindow({
     x: targetDisplay.workArea.x,
     y: targetDisplay.workArea.y,
     width: targetDisplay.workArea.width,
@@ -53,27 +55,49 @@ ipcMain.handle('transparentMode', (event, data) => {
     transparent: true,
     frame: false,
     resizable: false,
-    alwaysOnTop: true
+    alwaysOnTop: true,
+    webPreferences: {
+      preload: path.join(__dirname, 'bridge.js')
+    }
   })
 
   transparentWindow.loadFile('sub_page.html')
-
-  return 'ok'
 })
 
 ipcMain.handle('opacityMode', (event, data) => {
   const currentCursorScreenPoint = screen.getCursorScreenPoint()
-  const opacityWindow = new BrowserWindow({
+  opacityWindow = new BrowserWindow({
     x: currentCursorScreenPoint.x,
     y: currentCursorScreenPoint.y,
     width: 800,
     height: 600,
     opacity: 0.3,
-    alwaysOnTop: true
+    alwaysOnTop: true,
+    webPreferences: {
+      preload: path.join(__dirname, 'bridge.js')
+    }
   })
 
   opacityWindow.loadFile('sub_page.html')
   opacityWindow.maximize()
+})
 
-  return 'ok'
+ipcMain.handle('closeWindow', (event, data) => {
+  if (transparentWindow !== null) {
+    transparentWindow.close()
+    transparentWindow = null
+  }
+
+  if (opacityWindow !== null) {
+    opacityWindow.close()
+    opacityWindow = null
+  }
+})
+
+ipcMain.handle('ignoreMouseEvents', (event, data) => {
+  transparentWindow.fromWebContents(event.sender).setIgnoreMouseEvents(true, { forward: true })
+})
+
+ipcMain.handle('handleMouseEvents', (event, data) => {
+  transparentWindow.fromWebContents(event.sender).setIgnoreMouseEvents(false)
 })

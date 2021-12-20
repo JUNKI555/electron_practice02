@@ -31,12 +31,18 @@
     .back-white {
       background-color: #FFF;
     }
+
+    button {
+      width: 150px;
+      height: 30px;
+    }
   </style>
 </head>
 <body>
   <div id="screen">
     <div class="area back-white">
       <p>透過なし背景色白</p>
+      <button id="button_opacity_mode" onclick="closeWindow()">ウインドウを閉じる</button>
     </div>
     <div class="area back-transparent">
       <p>透過</p>
@@ -48,5 +54,11 @@
       <p>透過</p>
     </div>
   </div>
+
+  <script>
+    function closeWindow() {
+      window.myAPI.closeWindow();
+    }
+  </script>
 </body>
 </html>
