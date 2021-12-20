@@ -95,9 +95,9 @@ ipcMain.handle('closeWindow', (event, data) => {
 })
 
 ipcMain.handle('ignoreMouseEvents', (event, data) => {
-  transparentWindow.fromWebContents(event.sender).setIgnoreMouseEvents(true, { forward: true })
+  BrowserWindow.fromWebContents(event.sender).setIgnoreMouseEvents(true, { forward: true })
 })
 
 ipcMain.handle('handleMouseEvents', (event, data) => {
-  transparentWindow.fromWebContents(event.sender).setIgnoreMouseEvents(false)
+  BrowserWindow.fromWebContents(event.sender).setIgnoreMouseEvents(false)
 })

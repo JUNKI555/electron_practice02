@@ -56,6 +56,18 @@
   </div>
 
   <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      const clickThroughElements = document.getElementsByClassName('back-transparent');
+      for (const clickThroughElement of clickThroughElements) {
+        clickThroughElement.addEventListener('mouseenter', () => {
+          window.myAPI.ignoreMouseEvents();
+        })
+        clickThroughElement.addEventListener('mouseleave', () => {
+          window.myAPI.handleMouseEvents();
+        })
+      }
+    });
+
     function closeWindow() {
       window.myAPI.closeWindow();
     }
