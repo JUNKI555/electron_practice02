@@ -29,3 +29,13 @@ $ yarn start
   - https://www.electronjs.org/ja/docs/latest/api/screen
 - フレームレスウインドウ | Electron
   - https://www.electronjs.org/ja/docs/latest/api/frameless-window
+- Support click-through of transparency #1335 | Electron | GitHub
+  - https://github.com/electron/electron/issues/1335#issuecomment-500180039
+- toonvanvr/electron-transparency-mouse-fix: Click-through and drag&drop for transparent Electron windows | Electron | GitHub
+  - https://github.com/toonvanvr/electron-transparency-mouse-fix
+- Electronと透過ウィンドウ | Qiita
+  - https://qiita.com/fiji/items/59294b9f557be3f7f45b
+- Electron JS: How to Create a Beautiful Frameless Window | by Bobby Valenzuela | Medium
+  - https://bobby-valenzuela.medium.com/electron-js-how-to-create-a-beautiful-frameless-window-8ee9ef9d1280
+- setIgnoreMouseEvents({forward: true}) stops forwarding after a page reload #15376 | Electron | GitHub
+  - https://github.com/electron/electron/issues/15376
