@@ -2,7 +2,7 @@
 electron practice 02
 
 ## info
-run dev all
+run dev
 
 ```
 $ yarn install
